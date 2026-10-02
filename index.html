@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="STAR ELÉTRICA — Instalação e Manutenções. Instalações elétricas, montagem, câmeras, internet e iluminação em Mogi Guaçu e região." />
+  <meta name="theme-color" content="#05080d" />
+  <title>STAR ELÉTRICA | Instalação e Manutenções</title>
+  <style>
+    :root {
+      --bg: #05080d;
+      --bg-soft: #0a1018;
+      --card: #0d151f;
+      --blue: #0875e1;
+      --blue-light: #2ca5ff;
+      --yellow: #ffd21c;
+      --yellow-dark: #e6a900;
+      --white: #f7fbff;
+      --muted: #aeb9c6;
+      --line: rgba(255,255,255,.09);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    .glow { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; opacity: .22; }
+    .glow.blue { width: 380px; height: 380px; background: var(--blue); }
+    .glow.yellow { width: 260px; height: 260px; background: var(--yellow); opacity: .10; }
+
+    header {
+      position: fixed; inset: 0 0 auto; z-index: 20;
+      background: rgba(5,8,13,.78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: .04em; }
+    .brand-mark { position: relative; font-size: 24px; font-style: italic; color: var(--blue-light); text-shadow: 0 0 22px rgba(44,165,255,.35); }
+    .brand-mark span { color: var(--yellow); }
+    .brand-sub { display: block; font-size: 9px; color: var(--white); letter-spacing: .14em; margin-top: -5px; }
+    .nav-links { display: flex; gap: 28px; color: var(--muted); font-size: 14px; font-weight: 650; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { padding: 11px 18px; border-radius: 999px; background: var(--yellow); color: #111; font-weight: 800; font-size: 14px; }
+    .nav-cta:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+    .hero { position: relative; min-height: 100vh; display: grid; align-items: center; padding: 140px 0 90px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 70px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--yellow); font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 18px; }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--yellow); }
+    h1 { font-size: clamp(48px, 7vw, 86px); line-height: .94; letter-spacing: -.055em; max-width: 760px; }
+    h1 .blue { color: var(--blue-light); }
+    h1 .yellow { color: var(--yellow); }
+    .hero-copy { margin: 24px 0 32px; max-width: 650px; color: var(--muted); font-size: clamp(17px, 2vw, 20px); }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 52px; padding: 0 23px; border-radius: 14px; font-weight: 850; transition: .2s ease; }
+    .btn-primary { background: var(--yellow); color: #101010; box-shadow: 0 12px 30px rgba(255,210,28,.15); }
+    .btn-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.035); color: var(--white); }
+    .btn:hover { transform: translateY(-2px); }
+
+    .hero-card { position: relative; }
+    .electric-card { position: relative; min-height: 450px; border: 1px solid rgba(44,165,255,.22); border-radius: 32px; background: linear-gradient(145deg, rgba(13,31,49,.9), rgba(7,12,19,.96)); box-shadow: var(--shadow); overflow: hidden; display: grid; place-items: center; }
+    .electric-card::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(255,210,28,.14); border-radius: 24px; }
+    .bolt { font-size: 180px; line-height: 1; color: var(--yellow); filter: drop-shadow(0 0 35px rgba(255,210,28,.28)); transform: skewX(-8deg); }
+    .card-label { position: absolute; bottom: 28px; left: 30px; right: 30px; display: flex; align-items: end; justify-content: space-between; gap: 15px; }
+    .card-label strong { font-size: 25px; }
+    .card-label small { color: var(--muted); }
+    .badge { padding: 8px 11px; border: 1px solid rgba(255,210,28,.3); border-radius: 999px; color: var(--yellow); font-size: 11px; font-weight: 800; white-space: nowrap; }
+
+    section { position: relative; padding: 95px 0; }
+    .section-head { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 42px; }
+    .section-kicker { color: var(--yellow); text-transform: uppercase; font-size: 12px; letter-spacing: .15em; font-weight: 850; margin-bottom: 10px; }
+    h2 { font-size: clamp(32px, 5vw, 54px); line-height: 1; letter-spacing: -.04em; }
+    .section-desc { color: var(--muted); max-width: 520px; }
+
+    .services { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .service { padding: 28px; min-height: 220px; background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); border: 1px solid var(--line); border-radius: var(--radius); transition: .25s ease; }
+    .service:hover { transform: translateY(-5px); border-color: rgba(44,165,255,.38); }
+    .service-icon { width: 50px; height: 50px; display: grid; place-items: center; border-radius: 15px; margin-bottom: 22px; background: rgba(8,117,225,.12); color: var(--blue-light); font-size: 25px; }
+    .service:nth-child(2n) .service-icon { background: rgba(255,210,28,.1); color: var(--yellow); }
+    .service h3 { font-size: 20px; margin-bottom: 8px; }
+    .service p { color: var(--muted); font-size: 14px; }
+
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: center; }
+    .about-panel { position: relative; min-height: 390px; border-radius: 30px; border: 1px solid var(--line); overflow: hidden; background: radial-gradient(circle at 50% 30%, rgba(8,117,225,.22), transparent 45%), #080e16; display: grid; place-items: center; }
+    .about-panel .logo-text { text-align: center; font-size: 68px; line-height: .8; font-weight: 950; font-style: italic; color: var(--blue-light); letter-spacing: -.08em; }
+    .about-panel .logo-text b { color: var(--yellow); }
+    .about-panel .logo-caption { margin-top: 18px; color: var(--white); text-transform: uppercase; font-size: 11px; letter-spacing: .18em; text-align: center; }
+    .about-copy p { color: var(--muted); margin: 18px 0; }
+    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+    .check { display: flex; gap: 9px; align-items: center; color: #dfe8f1; font-size: 14px; }
+    .check::before { content: "✓"; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(255,210,28,.13); color: var(--yellow); font-weight: 900; }
+
+    .contact { background: linear-gradient(180deg, var(--bg) 0%, #07111c 100%); }
+    .contact-box { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 42px; border: 1px solid rgba(44,165,255,.18); border-radius: 30px; background: rgba(255,255,255,.025); box-shadow: var(--shadow); }
+    .contact-main h2 { margin-bottom: 14px; }
+    .contact-main p { color: var(--muted); max-width: 510px; }
+    .contact-items { display: grid; gap: 12px; }
+    .contact-item { display: flex; align-items: center; gap: 15px; padding: 17px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.025); }
+    .contact-icon { flex: 0 0 43px; height: 43px; display: grid; place-items: center; border-radius: 12px; background: rgba(8,117,225,.13); color: var(--blue-light); font-size: 20px; }
+    .contact-item strong { display: block; font-size: 14px; }
+    .contact-item span { display: block; color: var(--muted); font-size: 13px; }
+
+    footer { padding: 30px 0 90px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+
+    .whatsapp-float { position: fixed; z-index: 30; right: 22px; bottom: 22px; width: 61px; height: 61px; display: grid; place-items: center; border-radius: 50%; background: #25D366; color: white; box-shadow: 0 10px 35px rgba(37,211,102,.3); font-size: 28px; transition: .2s; }
+    .whatsapp-float:hover { transform: scale(1.07); }
+    .whatsapp-float::after { content: "WhatsApp"; position: absolute; right: 72px; padding: 7px 10px; border-radius: 8px; background: #101820; border: 1px solid var(--line); font-size: 12px; opacity: 0; transform: translateX(6px); transition: .2s; pointer-events: none; white-space: nowrap; }
+    .whatsapp-float:hover::after { opacity: 1; transform: translateX(0); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-grid, .about-grid, .contact-box { grid-template-columns: 1fr; }
+      .hero { padding-top: 120px; }
+      .hero-card { max-width: 650px; width: 100%; margin: 0 auto; }
+      .electric-card { min-height: 330px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .section-head { display: block; }
+      .section-desc { margin-top: 15px; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      nav { min-height: 68px; }
+      .nav-cta { padding: 9px 13px; font-size: 12px; }
+      h1 { font-size: clamp(44px, 14vw, 68px); }
+      section { padding: 72px 0; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service { min-height: 0; }
+      .checks { grid-template-columns: 1fr; }
+      .contact-box { padding: 25px 18px; }
+      .footer-inner { flex-direction: column; }
+      .bolt { font-size: 120px; }
+      .card-label { left: 22px; right: 22px; bottom: 22px; }
+      .whatsapp-float { right: 16px; bottom: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#inicio" class="brand" aria-label="STAR ELÉTRICA início">
+          <div>
+            <div class="brand-mark">ST<span>⚡</span>AR</div>
+            <span class="brand-sub">ELÉTRICA</span>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="#servicos">Serviços</a>
+          <a href="#empresa">A empresa</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <a class="nav-cta" href="https://wa.me/5519971619919?text=Ol%C3%A1%20STAR%20EL%C3%89TRICA!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="glow blue" style="top:120px;left:-150px"></div>
+      <div class="glow yellow" style="right:-70px;bottom:40px"></div>
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Instalação e Manutenções</div>
+          <h1>Energia bem feita.<br><span class="blue">Serviço</span> <span class="yellow">de confiança.</span></h1>
+          <p class="hero-copy">A STAR ELÉTRICA oferece soluções em instalações elétricas e serviços complementares para residências, empresas e ambientes comerciais, com atendimento em Mogi Guaçu e região.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/5519971619919?text=Ol%C3%A1%20STAR%20EL%C3%89TRICA!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">⚡ Solicitar orçamento</a>
+            <a class="btn btn-secondary" href="#servicos">Conhecer serviços ↓</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="electric-card">
+            <div class="bolt">⚡</div>
+            <div class="card-label">
+              <div><strong>STAR ELÉTRICA</strong><br><small>Instalação e Manutenções</small></div>
+              <span class="badge">MOGI GUAÇU • SP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">O que fazemos</div><h2>Soluções para o seu projeto.</h2></div>
+          <p class="section-desc">Serviços elétricos e complementares pensados para entregar segurança, organização e acabamento profissional.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service"><div class="service-icon">⌂</div><h3>Instalações residenciais</h3><p>Instalações e adequações elétricas para casas e ambientes residenciais.</p></article>
+          <article class="service"><div class="service-icon">▣</div><h3>Montagem elétrica</h3><p>Montagem, organização e manutenção de instalações e componentes elétricos.</p></article>
+          <article class="service"><div class="service-icon">▤</div><h3>Câmeras</h3><p>Soluções de segurança e instalação de sistemas de câmeras.</p></article>
+          <article class="service"><div class="service-icon">⌁</div><h3>Internet</h3><p>Instalação e organização de infraestrutura para conectividade.</p></article>
+          <article class="service"><div class="service-icon">☼</div><h3>Iluminação</h3><p>Instalação e melhorias de iluminação para valorizar e tornar o ambiente mais funcional.</p></article>
+          <article class="service"><div class="service-icon">⚡</div><h3>Manutenção</h3><p>Correções e manutenção para manter sua instalação segura e funcionando corretamente.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="empresa">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <div>
+            <div class="logo-text">ST<b>⚡</b>AR</div>
+            <div class="logo-caption">Instalação e Manutenções</div>
+          </div>
+        </div>
+        <div class="about-copy">
+          <div class="section-kicker">Sobre a STAR ELÉTRICA</div>
+          <h2>Seu projeto com cuidado em cada detalhe.</h2>
+          <p>A STAR ELÉTRICA atua com instalações elétricas, manutenção e soluções complementares para deixar seu ambiente mais seguro, funcional e bem acabado.</p>
+          <p>O atendimento está localizado em Mogi Guaçu, com contato direto para orçamento e dúvidas.</p>
+          <div class="checks">
+            <div class="check">Atendimento direto</div>
+            <div class="check">Orçamento pelo WhatsApp</div>
+            <div class="check">Instalação e manutenção</div>
+            <div class="check">Soluções personalizadas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-main">
+            <div class="section-kicker">Entre em contato</div>
+            <h2>Vamos conversar sobre seu projeto?</h2>
+            <p>Chame a STAR ELÉTRICA no WhatsApp para explicar o que você precisa e solicitar um orçamento.</p>
+            <div class="actions" style="margin-top:26px">
+              <a class="btn btn-primary" href="https://wa.me/5519971619919?text=Ol%C3%A1%20STAR%20EL%C3%89TRICA!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Conversar pelo WhatsApp</a>
+              <a class="btn btn-secondary" href="tel:+5519971619919">Ligar agora</a>
+            </div>
+          </div>
+          <div class="contact-items">
+            <a class="contact-item" href="https://wa.me/5519971619919" target="_blank" rel="noopener"><div class="contact-icon">◉</div><div><strong>WhatsApp / Telefone</strong><span>+55 19 97161-9919</span></div></a>
+            <a class="contact-item" href="mailto:stareletricaeinfo@gmail.com"><div class="contact-icon">✉</div><div><strong>E-mail</strong><span>stareletricaeinfo@gmail.com</span></div></a>
+            <div class="contact-item"><div class="contact-icon">⌖</div><div><strong>Endereço</strong><span>Rua Luis da Silva, 32 — Jardim Boa Esperança, Mogi Guaçu - SP</span></div></div>
+            <div class="contact-item"><div class="contact-icon">◷</div><div><strong>Horário informado</strong><span>Segunda a sexta • 09:00 às 18:00</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> STAR ELÉTRICA — Instalação e Manutenções</span>
+      <span>Mogi Guaçu • São Paulo</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5519971619919?text=Ol%C3%A1%20STAR%20EL%C3%89TRICA!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar com a STAR ELÉTRICA pelo WhatsApp">◔</a>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
